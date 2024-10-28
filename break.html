@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://source.unsplash.com; img-src 'self' https://source.unsplash.com data:; style-src 'self' 'unsafe-inline';">
+  <style>
+    /* Previous styles remain the same */
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+      color: white;
+      text-align: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.6) 100%
+      );
+      z-index: 1;
+    }
+    .quote-container {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 80%;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      animation: fadeIn 1s ease;
+    }
+    .quote {
+      font-size: 32px;
+      margin-bottom: 20px;
+      line-height: 1.4;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .author {
+      font-size: 20px;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(45deg, #ff6b6b, #ee5253);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 3;
+    }
+    .close-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <button class="close-btn" id="closeButton">Close</button>
+  <div class="quote-container floating">
+    <div class="quote" id="quote"></div>
+    <div class="author" id="author"></div>
+  </div>
+  <script src="break.js"></script>
+</body>
+</html>

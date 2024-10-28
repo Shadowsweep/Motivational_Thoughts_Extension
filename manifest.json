@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "Motivational Break",
+    "version": "1.0",
+    "description": "Shows beautiful images with motivational quotes at customizable intervals",
+    "permissions": ["alarms", "storage"],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "web_accessible_resources": [{
+      "resources": ["break.html"],
+      "matches": ["<all_urls>"]
+    }],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+  }
